@@ -1,0 +1,561 @@
+<!doctype html><html lang="it"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>.xhome{display:inline-flex;align-items:center;gap:.4em;flex:none;font:600 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:inherit;text-decoration:none;opacity:.78;padding:8px 11px;border:1px solid;border-color:color-mix(in srgb,currentColor 28%,transparent);border-radius:8px;white-space:nowrap}.xhome:hover{opacity:1;border-color:currentColor}.xhome:focus-visible{outline:3px solid currentColor;outline-offset:2px}.xhome-line{margin-bottom:16px}@media print{.xhome{display:none}}</style><style>.xtools{display:flex;align-items:center;gap:6px;flex:none;margin-left:auto}.xt{display:inline-flex;align-items:center;justify-content:center;gap:.4em;min-width:38px;height:38px;padding:0 10px;font:700 14px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:inherit;background:transparent;border:1px solid color-mix(in srgb,currentColor 28%,transparent);border-radius:8px;opacity:.85;cursor:pointer;white-space:nowrap}.xt:hover{opacity:1;border-color:currentColor}.xt:focus-visible{outline:3px solid currentColor;outline-offset:2px}.xt:disabled{opacity:.35;cursor:default}.xt[aria-pressed="true"]{opacity:1;border-color:currentColor}.xbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}@media (max-width:640px){.xt-l{display:none}.xt{min-width:34px;height:34px;padding:0 8px}}.xgo{display:flex;align-items:center;gap:8px;min-width:0}.xgo .xgo-l{font:600 12px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;opacity:.7;white-space:nowrap}.xgo .xsel{height:38px;min-width:0;width:auto;max-width:min(100%,380px);padding:0 8px 0 10px;font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:inherit;background-color:transparent;border:1px solid color-mix(in srgb,currentColor 28%,transparent);border-radius:8px;cursor:pointer;text-overflow:ellipsis}.xgo .xsel:hover{border-color:currentColor}.xgo .xsel:focus-visible{outline:3px solid currentColor;outline-offset:2px}.xgo .xsel option,.xgo .xsel optgroup{background:Canvas;color:CanvasText}@media (max-width:640px){.xgo{order:3;flex:1 1 100%}.xgo .xgo-l{display:none}.xgo .xsel{max-width:none;flex:1}}@media (min-width:641px){.xgo{margin-inline:auto}.xgo~.xtools{margin-left:0}.xgo .xsel{width:360px}}@media print{.xtools,.xbar,.xgo{display:none}}</style><script>try{var xbt=localStorage.getItem("xbar-theme");if(xbt==="dark"||xbt==="light")document.documentElement.setAttribute("data-theme",xbt)}catch(e){}</script></head><body>
+<title>Reti e Internet in classe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: app a tutta altezza (barra in alto · slide scorrevole · barra comandi in basso); l'indice scuro in copertina è l'elemento firma */
+:root{
+  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#13202D; --muted:#566476; --line:#D5DCE4;
+  --amber:#B06D00; --amber-soft:#FFF0D2; --teal:#0B6F80; --teal-soft:#DCF0F3;
+  --good:#237A36; --good-soft:#DFF3E3; --bad:#B42323; --bad-soft:#FBE3E3;
+  --board-bg:#111820; --board-fg:#F6BE45; --board-dim:#7E8B99; --board-line:#26313D;
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0D141B; --surface:#16202A; --ink:#E5ECF2; --muted:#97A5B4; --line:#2A3846;
+  --amber:#F3B443; --amber-soft:#382A0F; --teal:#4CC3D4; --teal-soft:#0E2C33;
+  --good:#6BD585; --good-soft:#123020; --bad:#FF8A8A; --bad-soft:#3A1616;
+  --board-bg:#070B10; --board-line:#1E2731; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0D141B; --surface:#16202A; --ink:#E5ECF2; --muted:#97A5B4; --line:#2A3846;
+  --amber:#F3B443; --amber-soft:#382A0F; --teal:#4CC3D4; --teal-soft:#0E2C33;
+  --good:#6BD585; --good-soft:#123020; --bad:#FF8A8A; --bad-soft:#3A1616;
+  --board-bg:#070B10; --board-line:#1E2731; color-scheme:dark}
+
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:clamp(16px,0.55vw + 12px,21px);line-height:1.5}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+.app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar,.bottombar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);border-color:var(--line);border-style:solid;border-width:0}
+.topbar{border-bottom-width:1px}
+.bottombar{border-top-width:1px}
+.brand{font-family:var(--f-display);font-weight:800;letter-spacing:.01em;font-size:1rem;display:flex;align-items:center;gap:10px}
+.brand .tag{font-family:var(--f-mono);font-size:.72rem;font-weight:700;background:var(--board-bg);color:var(--board-fg);padding:3px 8px;border-radius:4px;letter-spacing:.06em}
+.topbar select{font:inherit;font-size:.9rem;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);max-width:100%}
+.iconbtn{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:6px 12px;font-size:.9rem}
+.counter{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative}
+.slide{min-height:100%;display:flex}
+.slide-inner{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(20px,4vh,48px);display:flex;flex-direction:column;gap:18px;justify-content:center}
+.slide.enter .slide-inner{animation:rise .35s ease-out}
+@keyframes rise{from{opacity:.4;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.2rem,5.5vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,3.2vw,2.7rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0;max-width:68ch}
+.lead{font-size:1.15em;color:var(--muted)}
+strong{font-weight:700}
+.kw{background:var(--amber-soft);color:var(--ink);padding:0 .25em;border-radius:4px;font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.split>*{min-width:0}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trio>*,.quad>*{min-width:0}
+@media (max-width:820px){.split,.trio{grid-template-columns:1fr}.quad{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.quad{grid-template-columns:1fr}}
+
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.box.def{border-left:5px solid var(--amber)}
+.box h3 small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;margin-bottom:4px;font-weight:700}
+ul.clean{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+/* formula del tempo di download */
+.math{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;font-family:var(--f-mono);font-weight:700;font-size:clamp(1rem,1.6vw,1.25rem);color:var(--ink);padding:6px 0}
+.math small{font-weight:500;color:var(--muted);font-size:.78em}
+.meq{color:var(--teal);font-size:1.2em}
+.frac{display:inline-flex;flex-direction:column;align-items:center;text-align:center}
+.frac .num{padding:0 8px 6px;border-bottom:3px solid var(--ink)}
+.frac .den{padding:6px 8px 0}
+/* passi numerati */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:st;display:flex;flex-direction:column;gap:8px}
+ol.steps li{counter-increment:st;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px 10px 54px;min-height:48px}
+ol.steps li::before{content:counter(st);position:absolute;left:12px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:var(--surface);font:700 .95rem/30px var(--f-mono);text-align:center}
+ol.steps li b{display:block;font-family:var(--f-display);font-weight:800;color:var(--ink);margin-bottom:2px}
+.ex{font-size:.92em;color:var(--muted)}
+.ex b{color:var(--ink)}
+
+details.ask{background:var(--teal-soft);border-radius:var(--r);padding:12px 16px;max-width:820px}
+details.ask summary{cursor:pointer;font-weight:700;color:var(--teal);list-style:none}
+details.ask summary::before{content:"? ";font-family:var(--f-mono);display:inline-block;width:1.4em;height:1.4em;line-height:1.4em;text-align:center;border-radius:50%;background:var(--teal);color:var(--surface);margin-right:8px;font-size:.85em}
+details.ask summary::-webkit-details-marker{display:none}
+details.ask p{margin-top:8px}
+
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:.92rem;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Indice in copertina */
+.board{background:var(--board-bg);color:var(--board-fg);border-radius:12px;padding:14px;font-family:var(--f-mono);box-shadow:0 10px 30px rgba(0,0,0,.18);overflow-x:auto}
+.board-head,.board-row{display:grid;grid-template-columns:3.2em 1fr 6em;gap:12px;align-items:center;min-width:420px}
+.board-head{font-size:.68rem;letter-spacing:.14em;color:var(--board-dim);padding:0 10px 8px;border-bottom:1px solid var(--board-line)}
+.board-row{width:100%;background:none;border:0;border-bottom:1px solid var(--board-line);padding:10px;text-align:left;font-family:var(--f-mono);color:var(--board-fg);font-size:.95rem;font-weight:700;letter-spacing:.04em}
+.board-row:hover,.board-row:focus-visible{background:rgba(246,190,69,.08)}
+.board-row .dest{text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.board-row .st{color:#7FD99A;font-size:.8rem}
+.board-row .gate{color:var(--board-dim);font-size:.8rem}
+.flap{display:inline-block;animation:flap .5s steps(3) both}
+@keyframes flap{0%{transform:scaleY(.1);opacity:.3}100%{transform:none;opacity:1}}
+
+/* Duplex demo */
+.duplex{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
+.dx-stage{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+.dev{width:72px;height:72px;border-radius:14px;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-mono);font-size:.7rem;font-weight:700;text-align:center;line-height:1.2}
+.lanes{display:flex;flex-direction:column;gap:10px}
+.lane{position:relative;height:22px;border-radius:11px;background:var(--paper);border:1px dashed var(--line);overflow:hidden}
+.lane i{position:absolute;top:4px;width:14px;height:14px;border-radius:50%}
+.lane.r i{background:var(--amber);animation:goR 2s linear infinite}
+.lane.l i{background:var(--teal);animation:goL 2s linear infinite}
+.lane i:nth-child(2){animation-delay:-.66s}.lane i:nth-child(3){animation-delay:-1.33s}
+@keyframes goR{from{left:-14px}to{left:100%}}
+@keyframes goL{from{left:100%}to{left:-14px}}
+.dx-half .lane.r{animation:phaseA 4s steps(1) infinite}
+.dx-half .lane.l{animation:phaseB 4s steps(1) infinite}
+@keyframes phaseA{0%{opacity:1}50%{opacity:.08}}
+@keyframes phaseB{0%{opacity:.08}50%{opacity:1}}
+.dx-simplex .lane.l{opacity:.08}
+.dx-simplex .lane.l i{display:none}
+.dx-text{min-height:3.2em}
+
+/* Giochi di classificazione */
+.game{display:flex;flex-direction:column;gap:12px}
+.game-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.score{font-family:var(--f-mono);font-weight:700;font-variant-numeric:tabular-nums;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:10px;transition:background .2s,border-color .2s}
+.card .q{font-weight:600}
+.card .opts{display:flex;flex-wrap:wrap;gap:6px}
+.card .opts button{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:4px 10px;font-size:.85rem;font-weight:600}
+.card.ok{background:var(--good-soft);border-color:var(--good)}
+.card.ko{background:var(--bad-soft);border-color:var(--bad)}
+.card .fb{font-size:.85rem;font-weight:600}
+.card.ok .fb{color:var(--good)}.card.ko .fb{color:var(--bad)}
+.card.done .opts button{cursor:default;opacity:.55}
+.card.done .opts button.picked{opacity:1;border-color:currentColor}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabpanel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.tabpanel .split{align-items:center}
+.illu{background:var(--paper);border-radius:var(--r);padding:12px;display:grid;place-items:center}
+.illu svg{width:100%;max-width:420px;height:auto}
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.92em}
+.proscons div{border-radius:8px;padding:10px 12px}
+.proscons .pro{background:var(--good-soft)}.proscons .con{background:var(--bad-soft)}
+.proscons b{display:block;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+@media (max-width:520px){.proscons{grid-template-columns:1fr}}
+.ray{stroke-dasharray:14 10;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-48}}
+.wave-arc{animation:pulse 2s ease-out infinite;transform-origin:60px 100px}
+.wave-arc:nth-of-type(2){animation-delay:.4s}.wave-arc:nth-of-type(3){animation-delay:.8s}
+@keyframes pulse{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
+
+/* Tabelle */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95em}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+.meter{display:inline-flex;gap:3px;vertical-align:middle}
+.meter span{width:12px;height:12px;border-radius:2px;background:var(--line)}
+.meter span.on{background:var(--amber)}
+
+/* Banda */
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
+.calc label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.result{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.big{font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,4.5vw,3.4rem);color:var(--amber);font-variant-numeric:tabular-nums;line-height:1}
+.formula{font-family:var(--f-mono);font-size:.9rem;color:var(--muted)}
+.dlbar{height:16px;border-radius:8px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.dlbar div{height:100%;width:0;background:var(--teal)}
+.road{display:flex;flex-direction:column;gap:6px;background:var(--board-bg);border-radius:var(--r);padding:12px}
+.road .rl{height:20px;border-radius:3px;background:#2A333D;position:relative;overflow:hidden}
+.road .rl::after{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px dashed #55606C}
+.road .car{position:absolute;top:3px;width:26px;height:14px;border-radius:3px;background:var(--board-fg);animation:goR 2.6s linear infinite;z-index:1}
+.road .rl:nth-child(2) .car{animation-delay:-.9s;background:#7FD99A}
+.road .rl:nth-child(3) .car{animation-delay:-1.7s;background:#7CC6FF}
+.road .rl:nth-child(4) .car{animation-delay:-.4s}
+.roadcap{font-family:var(--f-mono);font-size:.75rem;color:var(--board-dim)}
+
+/* Scala reti */
+.scale svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+.ring{fill:var(--surface);stroke:var(--line);stroke-width:2;transition:fill .25s,stroke .25s}
+.ring.on{fill:var(--amber-soft);stroke:var(--amber);stroke-width:3}
+.ringlbl{font-family:var(--f-mono);font-weight:700;font-size:15px;fill:var(--muted)}
+.ringlbl.on{fill:var(--amber)}
+
+/* Timeline */
+.tl{display:flex;gap:0;overflow-x:auto;padding-bottom:6px;position:relative}
+.tl button{flex:0 0 auto;background:none;border:0;padding:24px 14px 8px;position:relative;font-family:var(--f-mono);font-weight:700;color:var(--muted);font-size:.95rem}
+.tl button::before{content:"";position:absolute;left:0;right:0;top:10px;border-top:2px solid var(--line)}
+.tl button::after{content:"";position:absolute;left:50%;top:4px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
+.tl button[aria-pressed="true"]{color:var(--amber)}
+.tl button[aria-pressed="true"]::after{background:var(--amber);border-color:var(--amber)}
+.tlcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px;min-height:9em}
+.tlcard .yr{font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--amber);line-height:1}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);vertical-align:middle}
+.annivers{background:var(--amber-soft);border-radius:8px;padding:8px 12px;font-weight:600}
+
+/* Pacchetti */
+.net svg{width:100%;height:auto;display:block}
+.net{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;overflow-x:auto}
+.net-in{min-width:560px}
+.edge{stroke:var(--line);stroke-width:3}
+.node rect,.node circle{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.node text{font-family:var(--f-mono);font-size:13px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.pkt circle{fill:var(--amber)}
+.pkt text{font-family:var(--f-mono);font-size:12px;font-weight:700;fill:var(--board-bg);text-anchor:middle}
+.netlog{font-family:var(--f-mono);font-size:.88rem;background:var(--board-bg);color:var(--board-fg);border-radius:8px;padding:10px 14px;min-height:4.6em;white-space:pre-wrap}
+.primary{background:var(--ink);color:var(--paper);border:0;border-radius:8px;padding:9px 18px;font-weight:700}
+.primary:disabled{opacity:.5;cursor:default}
+.ghost{background:none;border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-weight:600}
+
+.mac{font-family:var(--f-mono);font-weight:700;font-size:clamp(1.3rem,3vw,2rem);letter-spacing:.06em;background:var(--board-bg);color:var(--board-fg);padding:10px 16px;border-radius:8px;display:inline-block;font-variant-numeric:tabular-nums}
+.mac .v{color:#7CC6FF}
+.modem svg{width:100%;height:auto;display:block}
+.modem{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;overflow-x:auto}
+.modem-in{min-width:520px}
+.sig{fill:none;stroke-width:3}
+.sig.d{stroke:var(--amber)}.sig.a{stroke:var(--teal)}
+.flow{stroke-dasharray:6 6;animation:dash 1s linear infinite}
+.flow.rev{animation-direction:reverse}
+.mtxt{font-family:var(--f-mono);font-size:13px;font-weight:700;fill:var(--muted)}
+.mbox{fill:var(--ink)}.mboxt{fill:var(--paper);font-family:var(--f-display);font-weight:800;font-size:16px;text-anchor:middle}
+
+.nest svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto}
+
+/* Quiz */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:14px;max-width:820px}
+.quiz .qn{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.quiz .qq{font-family:var(--f-display);font-weight:700;font-size:1.35rem;text-wrap:balance}
+.quiz .qopts{display:flex;flex-direction:column;gap:8px}
+.quiz .qopts button{text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:10px 14px;font-weight:600}
+.quiz .qopts button.ok{background:var(--good-soft);border-color:var(--good)}
+.quiz .qopts button.ko{background:var(--bad-soft);border-color:var(--bad)}
+.quiz .qexp{color:var(--muted)}
+.qprog{height:6px;background:var(--paper);border-radius:3px;overflow:hidden}
+.qprog div{height:100%;background:var(--amber);transition:width .3s}
+
+/* Barra in basso */
+.navbtn{border:0;background:var(--ink);color:var(--paper);border-radius:8px;padding:9px 18px;font-weight:700;min-width:7em}
+.navbtn:disabled{opacity:.35;cursor:default}
+.progress{flex:1;min-width:120px;height:8px;background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.progress div{height:100%;background:var(--amber);transition:width .3s}
+.hint{font-size:.78rem;color:var(--muted)}
+@media (max-width:640px){.hint{display:none}.navbtn{min-width:0}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <a class="xhome" href="../../../index.html" title="Torna all'elenco dei corsi" aria-label="Torna all'elenco dei corsi">← Corsi</a>
+    <div class="brand"><span class="tag">2ª TUR</span> Reti e Internet</div>
+    <div class="xgo"><label for="chapterSel" class="xgo-l">Vai a</label><select class="xsel" id="chapterSel" aria-label="Vai all'argomento"></select></div>
+    <span class="counter" id="counter">1 / 1</span>
+    <div class="xtools" role="group" aria-label="Strumenti" data-zoom=".slide-inner">
+      <button class="xt" type="button" data-x="zoom-out" title="Testo più piccolo">A−</button>
+      <button class="xt" type="button" data-x="zoom-in" title="Testo più grande">A+</button>
+      <button class="xt" type="button" data-x="theme" title="Tema chiaro / scuro">◐</button>
+      <button class="xt" type="button" data-x="full" title="Schermo intero">⛶</button>
+      <button class="xt" type="button" id="xindex" title="Indice degli argomenti">☰ <span class="xt-l">Indice</span></button>
+    </div>
+  </header>
+
+  <main id="stage">
+
+<!-- ============ COPERTINA ============ -->
+<section class="slide" data-ch="0" data-chname="Copertina">
+ <div class="slide-inner">
+  <p class="eyebrow">Informatica · Classe 2ª Turistico</p>
+  <h1>Reti e Internet</h1>
+  <p class="lead">Come viaggiano le informazioni: da una telefonata tra due persone a un messaggio che attraversa il mondo in una frazione di secondo.</p>
+  <div class="board" role="navigation" aria-label="Argomenti">
+    <div class="board-head"><span>N°</span><span>ARGOMENTO</span><span>VAI A</span></div>
+    <div id="boardRows"></div>
+  </div>
+ </div>
+</section>
+
+<script src="argomenti/01-comunicazione-mono-e-bidirezionale.js"></script>
+<script src="argomenti/02-mezzi-di-trasmissione.js"></script>
+<script src="argomenti/03-larghezza-di-banda.js"></script>
+<script src="argomenti/04-reti-per-estensione-geografica.js"></script>
+<script src="argomenti/05-internet-definizione-storia-funzionamento.js"></script>
+<script src="argomenti/06-scheda-di-rete-e-modem.js"></script>
+<script src="argomenti/07-intranet-ed-extranet.js"></script>
+<script src="argomenti/08-quiz-finale.js"></script>
+  </main>
+
+  <footer class="bottombar">
+    <button class="navbtn" id="prevBtn" type="button">← Indietro</button>
+    <div class="progress" aria-hidden="true"><div id="progBar"></div></div>
+    <span class="hint">Frecce ← → per navigare</span>
+    <button class="navbtn" id="nextBtn" type="button">Avanti →</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), stage=$('#stage');
+let cur=0;
+
+/* ---- capitoli ---- */
+const chapters=[];
+slides.forEach((s,i)=>{ if(s.dataset.chname) chapters.push({ch:+s.dataset.ch,name:s.dataset.chname,idx:i}); });
+const sel=$('#chapterSel');
+chapters.forEach(c=>{const o=document.createElement('option');o.value=c.idx;o.textContent=(c.ch&&c.ch<8?c.ch+'. ':'')+c.name;sel.appendChild(o);});
+sel.addEventListener('change',()=>{go(+sel.value);sel.blur();});
+
+const board=$('#boardRows');
+chapters.filter(c=>c.ch>0).forEach((c,k)=>{
+  const b=document.createElement('button');b.className='board-row';b.type='button';
+  b.innerHTML=`<span>${c.ch<8?String(c.ch).padStart(2,'0'):'★'}</span><span class="dest flap" style="animation-delay:${k*80}ms">${c.name}</span><span class="gate">SLIDE ${c.idx+1}</span>`;
+  b.addEventListener('click',()=>go(c.idx));board.appendChild(b);
+});
+
+function go(i){
+  i=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>{s.hidden=k!==i;s.classList.toggle('enter',k===i);});
+  cur=i; stage.scrollTop=0;
+  $('#counter').textContent=`${i+1} / ${slides.length}`;
+  $('#progBar').style.width=((i+1)/slides.length*100)+'%';
+  $('#prevBtn').disabled=i===0; $('#nextBtn').disabled=i===slides.length-1;
+  const ch=+slides[i].dataset.ch; const c=chapters.find(x=>x.ch===ch); if(c) sel.value=c.idx;
+  const h='#s'+(i+1); if(location.hash!==h) history.replaceState(null,'',h);
+}
+$('#prevBtn').onclick=()=>go(cur-1); $('#nextBtn').onclick=()=>go(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.closest('select,input,textarea')) return;
+  if(['ArrowRight','PageDown'].includes(e.key)){e.preventDefault();go(cur+1);}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1);}
+  if(e.key==='Home'){go(0);} if(e.key==='End'){go(slides.length-1);}
+});
+let tx=0,ty=0;
+stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+stage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>70&&Math.abs(dy)<50&&!e.target.closest('.tl,.tablewrap,.net,.modem,.board'))go(cur+(dx<0?1:-1));},{passive:true});
+function fromHash(){const m=/^#s(\d+)$/.exec(location.hash);go(m?+m[1]-1:0);}
+window.addEventListener('hashchange',fromHash);
+
+$('#xindex').onclick=()=>go(0);
+
+function pressGroup(container,btn){$$('button',container).forEach(b=>b.setAttribute('aria-pressed',b===btn?'true':'false'));}
+
+/* ---- duplex ---- */
+const dx=$('#duplex'), dxInfo={
+  simplex:['RADIO','ASCOL&shy;TATORE','<strong>Simplex (monodirezionale):</strong> i dati vanno sempre da A verso B. La radio trasmette, l\'ascoltatore non può rispondere.'],
+  half:['RADIO&shy;LINA A','RADIO&shy;LINA B','<strong>Half-duplex (bidirezionale alternata):</strong> si trasmette in entrambe le direzioni ma <em>una alla volta</em>. Il walkie-talkie: si parla, si dice «passo» e si ascolta.'],
+  full:['TELEFONO','TELEFONO','<strong>Full-duplex (bidirezionale contemporanea):</strong> entrambi trasmettono <em>nello stesso momento</em>. Una telefonata: si può parlare insieme.']};
+function setDx(m){dx.className='duplex dx-'+m;$('#devA').innerHTML=dxInfo[m][0];$('#devB').innerHTML=dxInfo[m][1];$('#dxText').innerHTML=dxInfo[m][2];}
+$$('[data-mode]',dx).forEach(b=>b.onclick=()=>{pressGroup(b.parentNode,b);setDx(b.dataset.mode);});
+setDx('simplex');
+
+/* ---- giochi ---- */
+const games={
+  com:{cats:['Mono','Bi'],items:[
+    ['Un programma alla TV',0,'La TV trasmette, lo spettatore guarda.'],
+    ['Telefonata con un amico',1,'Si parla e si ascolta, anche insieme.'],
+    ['Cartellone pubblicitario',0,'Chi passa legge ma non può rispondere.'],
+    ['Chat WhatsApp con un compagno',1,'Entrambi scrivono e rispondono.'],
+    ['Annuncio dall\'altoparlante a scuola',0,'Chi ascolta non può rispondere.'],
+    ['Videochiamata con i nonni',1,'Comunicazione bidirezionale contemporanea.'],
+    ['Radio in auto',0,'Trasmissione verso molti ascoltatori, senza risposta.'],
+    ['Walkie-talkie',1,'Bidirezionale, ma alternata (half-duplex).']]},
+  net:{cats:['PAN','LAN','MAN','WAN'],items:[
+    ['Smartwatch collegato al telefono',0,'Pochi centimetri: rete personale.'],
+    ['I PC del laboratorio di informatica',1,'Un solo edificio: rete locale.'],
+    ['Wi-Fi pubblico in tutto il centro di Torino',2,'Copre una città: rete metropolitana.'],
+    ['Collegamento tra le sedi di una multinazionale in 30 Paesi',3,'Più Stati: rete geografica.'],
+    ['I computer e la stampante di un ufficio',1,'Un ufficio: rete locale.'],
+    ['Internet',3,'La WAN più grande del mondo.']]},
+  ext:{cats:['Intranet','Extranet','Internet'],items:[
+    ['Portale con le circolari per i dipendenti',0,'Solo i dipendenti.'],
+    ['Sito pubblico di un\'azienda con orari e contatti',2,'Lo vede chiunque.'],
+    ['Area riservata in cui i fornitori vedono gli ordini',1,'Partner esterni con login.'],
+    ['Manuale interno delle procedure aziendali',0,'Documento per i dipendenti.'],
+    ['Area clienti in cui i rivenditori scaricano i listini',1,'Clienti autorizzati con login.'],
+    ['Pagina Instagram di un\'azienda',2,'Pubblica, aperta a tutti.']]}
+};
+$$('[data-game]').forEach(g=>{
+  const data=games[g.dataset.game];let score=0,done=0;
+  g.innerHTML=`<div class="game-bar"><span class="score">Punti: <b>0</b> / ${data.items.length}</span><button class="ghost" type="button">Ricomincia</button></div><div class="cards"></div>`;
+  const cards=$('.cards',g), sc=$('.score b',g);
+  function build(){
+    score=0;done=0;sc.textContent='0';cards.innerHTML='';
+    data.items.forEach(([q,a,why])=>{
+      const c=document.createElement('div');c.className='card';
+      c.innerHTML=`<div class="q">${q}</div><div class="opts">${data.cats.map((t,k)=>`<button type="button" data-k="${k}">${t}</button>`).join('')}</div><div class="fb" aria-live="polite"></div>`;
+      $$('button',c).forEach(b=>b.onclick=()=>{
+        if(c.classList.contains('done'))return;
+        const ok=+b.dataset.k===a;c.classList.add('done',ok?'ok':'ko');b.classList.add('picked');
+        $('.fb',c).textContent=(ok?'Giusto! ':'No, è '+data.cats[a]+'. ')+why;
+        if(ok)score++;sc.textContent=score;
+      });
+      cards.appendChild(c);
+    });
+  }
+  $('.ghost',g).onclick=build;build();
+});
+
+/* ---- tabs mezzi ---- */
+$$('#mediaTabs button').forEach(b=>b.onclick=()=>{pressGroup(b.parentNode,b);$$('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==b.dataset.tab);});
+(function twist(){let a='',c='';for(let x=20;x<=400;x+=4){const y1=80+16*Math.sin(x/18),y2=80-16*Math.sin(x/18);a+=(x===20?'M':'L')+x+' '+y1.toFixed(1)+' ';c+=(x===20?'M':'L')+x+' '+y2.toFixed(1)+' ';}$('#tw1').setAttribute('d',a);$('#tw2').setAttribute('d',c);})();
+
+/* ---- calcolatore banda ---- */
+let mb=25,mbps=7,dlTimer=null;
+function fmt(s){if(s<1)return 'meno di 1 s';if(s<60)return Math.round(s)+' s';if(s<3600){const m=Math.floor(s/60),r=Math.round(s%60);return m+' min'+(r?' '+r+' s':'');}const h=Math.floor(s/3600),m=Math.round((s%3600)/60);return h+' h '+m+' min';}
+function calc(){const s=mb*8/mbps;$('#dlTime').textContent=fmt(s);$('#dlFormula').textContent=`(${mb.toLocaleString('it-IT')} MB × 8) ÷ ${mbps.toLocaleString('it-IT')} Mbps = ${s.toLocaleString('it-IT',{maximumFractionDigits:1})} secondi`;$('#dlBar').style.transition='none';$('#dlBar').style.width='0';$('#dlNote').textContent='';return s;}
+$$('#fileChips button').forEach(b=>b.onclick=()=>{pressGroup(b.parentNode,b);mb=+b.dataset.mb;calc();});
+$$('#netChips button').forEach(b=>b.onclick=()=>{pressGroup(b.parentNode,b);mbps=+b.dataset.mbps;calc();});
+$('#dlGo').onclick=()=>{const s=calc();const real=Math.max(.3,s),shown=Math.min(real,6);const bar=$('#dlBar');void bar.offsetWidth;bar.style.transition=`width ${shown}s linear`;bar.style.width='100%';$('#dlNote').textContent=real>6?'Simulazione accelerata: il tempo vero è quello scritto sopra.':'Tempo reale.';};
+calc();
+
+/* ---- reti ---- */
+const netInfo={
+  PAN:['PAN · Personal Area Network','Rete <span class="kw">personale</span> di pochi metri intorno a una persona.','Smartphone + cuffie Bluetooth, smartwatch, auricolari wireless.'],
+  LAN:['LAN · Local Area Network','Rete <span class="kw">locale</span> dentro un edificio o un gruppo di edifici vicini.','La rete della scuola: PC del laboratorio, stampanti, Wi-Fi delle aule.'],
+  MAN:['MAN · Metropolitan Area Network','Rete <span class="kw">metropolitana</span> che copre una città.','Il Wi-Fi gratuito del Comune nelle piazze e nelle stazioni.'],
+  WAN:['WAN · Wide Area Network','Rete <span class="kw">geografica</span> che collega Stati e continenti.','La rete di una banca con filiali in tutta Europa. Internet è la WAN più grande.']};
+function setNet(n){$$('#rings [data-net]').forEach(e=>e.classList.toggle('on',e.dataset.net===n));pressGroup($('#netBtns'),$(`#netBtns [data-net="${n}"]`));const d=netInfo[n];$('#netCard').innerHTML=`<h3>${d[0]}</h3><p>${d[1]}</p><p class="ex"><b>Esempio:</b> ${d[2]}</p>`;}
+$$('#netBtns button').forEach(b=>b.onclick=()=>setNet(b.dataset.net));
+$$('#rings [data-net]').forEach(e=>{e.style.cursor='pointer';e.addEventListener('click',()=>setNet(e.dataset.net));});
+setNet('LAN');
+
+/* ---- timeline ---- */
+const tl=[
+  ['1969','ARPANET',false,'Il Dipartimento della Difesa degli Stati Uniti collega i computer di 4 università. Il 29 ottobre 1969 parte il primo messaggio: doveva essere «LOGIN», arrivarono solo le lettere «LO» prima che il sistema si bloccasse.'],
+  ['1971','La prima email',false,'Ray Tomlinson invia la prima email tra due computer e sceglie il simbolo @ per separare il nome dell\'utente da quello del computer.'],
+  ['1983','Nasce Internet',false,'ARPANET adotta il protocollo TCP/IP: reti diverse possono finalmente parlare la stessa lingua. Nasce la «rete di reti».'],
+  ['1986','L\'Italia si collega',false,'Il 30 aprile 1986 il centro di ricerca CNUCE di Pisa si collega a Internet: l\'Italia è tra i primi Paesi europei.'],
+  ['1991','World Wide Web',false,'Al CERN di Ginevra Tim Berners-Lee crea il Web: pagine collegate da link, lette con un browser. Internet diventa facile da usare.'],
+  ['1993','Il Web per tutti',false,'Il CERN rende il Web libero e gratuito. Arriva Mosaic, il primo browser grafico diffuso: pagine con immagini.'],
+  ['1995','Comprare online',false,'Nascono Amazon ed eBay: inizia il commercio elettronico, si compra da casa.'],
+  ['1998','Google',false,'Nasce il motore di ricerca Google: trovare informazioni diventa immediato.'],
+  ['2004','Social network',false,'Nasce Facebook e, l\'anno dopo, YouTube: chiunque può pubblicare contenuti e condividerli.'],
+  ['2007','Internet in tasca',false,'Arriva l\'iPhone e poi gli smartphone Android: Internet si usa ovunque, in ogni momento.'],
+  ['2010','App e cloud',false,'WhatsApp (2009) e Instagram (2010) cambiano il modo di comunicare; foto e documenti si salvano nel cloud.'],
+  ['Oggi','Oltre 5 miliardi',false,'Più di 5 miliardi di persone usano Internet. 5G, cloud, Internet delle cose (IoT) e intelligenza artificiale: casa domotica, assistenti vocali, chatbot.']];
+const tlBox=$('#tl');
+tl.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t[0];b.onclick=()=>setTl(i);tlBox.appendChild(b);});
+function setTl(i){pressGroup(tlBox,tlBox.children[i]);const t=tl[i];const now=new Date();const anniv=(i===0&&now.getMonth()===9&&now.getDate()===29)?`<p class="annivers">Oggi è l'anniversario: Internet compie ${now.getFullYear()-1969} anni!</p>`:'';
+  $('#tlCard').innerHTML=`<span class="yr">${t[0]}</span><h3>${t[1]}</h3><p>${t[3]}</p>${anniv}`;}
+setTl(0);
+
+/* ---- pacchetti ---- */
+const N={PC:[70,150],R1:[230,65],R2:[230,235],R3:[400,150],R4:[570,65],R5:[570,235],S:[730,150]};
+const E=[['PC','R1'],['PC','R2'],['R1','R3'],['R2','R3'],['R1','R4'],['R2','R5'],['R3','R4'],['R3','R5'],['R4','S'],['R5','S']];
+const svg=$('#netSvg'),NS='http://www.w3.org/2000/svg';
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
+E.forEach(([a,b])=>el('line',{x1:N[a][0],y1:N[a][1],x2:N[b][0],y2:N[b][1],class:'edge'}));
+Object.entries(N).forEach(([k,[x,y]])=>{const g=el('g',{class:'node'});
+  if(k==='PC'||k==='S'){el('rect',{x:x-48,y:y-30,width:96,height:60,rx:8},g);el('text',{x,y:y-4},g).textContent=k==='PC'?'Il tuo PC':'Server';el('text',{x,y:y+14},g).textContent=k==='PC'?'192.168.1.20':'203.0.113.25';}
+  else{el('circle',{cx:x,cy:y,r:24},g);el('text',{x,y:y+5},g).textContent=k;}});
+const pg=el('g',{});
+const routes=[['PC','R1','R4','S'],['PC','R2','R5','S'],['PC','R1','R3','R5','S'],['PC','R2','R3','R4','S']];
+const speeds=[1,1.45,0.85,1.2];
+let running=false,raf=null;
+function log(t){$('#netLog').textContent=t;}
+function resetNet(){cancelAnimationFrame(raf);pg.innerHTML='';running=false;$('#sendBtn').disabled=false;log('Premi «Invia il messaggio».');}
+$('#resetNet').onclick=resetNet;
+$('#sendBtn').onclick=()=>{
+  if(running)return;running=true;$('#sendBtn').disabled=true;pg.innerHTML='';
+  log('1. DNS: www.esempio.it → 203.0.113.25');
+  setTimeout(()=>{log('1. DNS: www.esempio.it → 203.0.113.25\n2. Messaggio diviso in 4 pacchetti. Partenza!');
+    const pk=routes.map((r,i)=>{const g=el('g',{class:'pkt'},pg);el('circle',{r:13},g);el('text',{y:4},g).textContent=i+1;return{r,g,t:-i*0.25,done:false};});
+    const arrived=[];let last=performance.now();
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function step(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+      pk.forEach((p,i)=>{ if(p.done)return; p.t+=reduce?1:dt*0.55*speeds[i]; const segs=p.r.length-1; let u=Math.max(0,p.t)*segs;
+        if(u>=segs){p.done=true;arrived.push(i+1);u=segs;}
+        const s=Math.min(Math.floor(u),segs-1),f=u-s,a=N[p.r[s]],b=N[p.r[s+1]];
+        const x=a[0]+(b[0]-a[0])*f,y=a[1]+(b[1]-a[1])*f;p.g.setAttribute('transform',`translate(${x},${y})`);});
+      if(arrived.length) log(`1. DNS: www.esempio.it → 203.0.113.25\n2. Pacchetti in viaggio su strade diverse…\n3. Arrivati in quest'ordine: ${arrived.join(' - ')}`);
+      if(arrived.length<4) raf=requestAnimationFrame(step);
+      else{log(`1. DNS: www.esempio.it → 203.0.113.25\n2. Arrivati in quest'ordine: ${arrived.join(' - ')}\n3. Il server li rimette in ordine 1 - 2 - 3 - 4: messaggio ricevuto ✓`);running=false;$('#sendBtn').disabled=false;}}
+    raf=requestAnimationFrame(step);},900);
+};
+
+/* ---- MAC ---- */
+$('#macBtn').onclick=()=>{const h=()=>Math.floor(Math.random()*256).toString(16).toUpperCase().padStart(2,'0');const vend=[['3C','52','82'],['00','1B','63'],['F4','5C','89'],['B8','27','EB']][Math.floor(Math.random()*4)];$('#macOut').innerHTML=`<span>${vend.join(':')}</span>:<span class="v">${h()}:${h()}:${h()}</span>`;};
+
+/* ---- modem ---- */
+const ms=$('#modemSvg');
+function drawModem(dir){
+  ms.innerHTML='';const bits=[1,0,1,1,0,1];const w=36,x0=20,yHi=60,yLo=120;
+  let d=`M${x0} ${bits[0]?yHi:yLo}`;bits.forEach((b,i)=>{const y=b?yHi:yLo;d+=` L${x0+i*w} ${y} L${x0+(i+1)*w} ${y}`;});
+  let a='';const ax=500;bits.forEach((b,i)=>{const f=b?3:1.5;for(let k=0;k<=36;k++){const x=ax+i*w+k,y=90-28*Math.sin((k/36)*f*2*Math.PI);a+=(i===0&&k===0?'M':'L')+x+' '+y.toFixed(1)+' ';}});
+  const mk=(t,at,p)=>{const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);(p||ms).appendChild(e);return e;};
+  mk('path',{d,class:'sig d'});mk('path',{d:a,class:'sig a'});
+  bits.forEach((b,i)=>{mk('text',{x:x0+i*w+w/2,y:150,'text-anchor':'middle',class:'mtxt'}).textContent=b;});
+  mk('text',{x:20,y:30,class:'mtxt'}).textContent='COMPUTER · digitale (0 e 1)';
+  mk('text',{x:500,y:30,class:'mtxt'}).textContent='LINEA TELEFONICA · analogico';
+  mk('rect',{x:300,y:55,width:150,height:70,rx:10,class:'mbox'});
+  mk('text',{x:375,y:96,class:'mboxt'}).textContent='MODEM';
+  mk('line',{x1:240,y1:90,x2:298,y2:90,stroke:'var(--muted)','stroke-width':3,class:'flow'+(dir==='demod'?' rev':'')});
+  mk('line',{x1:452,y1:90,x2:496,y2:90,stroke:'var(--muted)','stroke-width':3,class:'flow'+(dir==='demod'?' rev':'')});
+  mk('text',{x:375,y:175,'text-anchor':'middle',class:'mtxt',style:'fill:var(--amber)'}).textContent=dir==='mod'?'MODULAZIONE: digitale → analogico  ⟶':'⟵  DEMODULAZIONE: analogico → digitale';
+}
+$$('#modemChips button').forEach(b=>b.onclick=()=>{pressGroup(b.parentNode,b);drawModem(b.dataset.dir);});
+drawModem('mod');
+
+/* ---- quiz ---- */
+const Q=[
+ ['Una trasmissione televisiva è una comunicazione…',['Monodirezionale','Bidirezionale alternata','Bidirezionale contemporanea'],0,'Lo spettatore riceve ma non può rispondere sullo stesso canale.'],
+ ['Il walkie-talkie è un esempio di comunicazione…',['Simplex','Half-duplex','Full-duplex'],1,'Si parla in entrambe le direzioni, ma uno alla volta.'],
+ ['Quale mezzo trasmette i dati con impulsi di luce?',['Doppino','Wireless','Fibra ottica'],2,'Nella fibra la luce rimbalza dentro un filo di vetro.'],
+ ['La larghezza di banda si misura in…',['Byte','Bit al secondo','Hertz al metro'],1,'bps, Kbps, Mbps, Gbps.'],
+ ['Con una connessione da 100 Mbps, un file da 100 MB si scarica in circa…',['1 secondo','8 secondi','100 secondi'],1,'100 MB × 8 = 800 Mb; 800 ÷ 100 = 8 secondi.'],
+ ['La rete che collega i computer dentro una scuola è una…',['PAN','LAN','WAN'],1,'Copre un solo edificio: Local Area Network.'],
+ ['Da quale rete è nata Internet?',['ARPANET','World Wide Web','Bluetooth'],0,'ARPANET, 1969, Stati Uniti.'],
+ ['Il World Wide Web è…',['Un altro nome di Internet','Un servizio che funziona su Internet','Un tipo di cavo'],1,'Internet è la rete, il Web è uno dei suoi servizi.'],
+ ['L\'indirizzo MAC identifica…',['Un sito web','La scheda di rete','Il router del provider'],1,'È scritto dal produttore ed è univoco per ogni scheda.'],
+ ['Il modem serve a…',['Convertire segnali digitali in analogici e viceversa','Proteggere dai virus','Stampare in rete'],0,'MOdulatore-DEModulatore.'],
+ ['Il portale in cui i fornitori di un\'azienda entrano con login per vedere gli ordini è…',['Una Intranet','Una Extranet','Il sito pubblico'],1,'Accesso per esterni autorizzati.']];
+let qi=0,qs=0,answered=false;
+const qz=$('#quiz');
+function renderQ(){
+  if(qi>=Q.length){qz.innerHTML=`<div class="qprog"><div style="width:100%"></div></div><span class="qq">Punteggio: ${qs} / ${Q.length}</span><p>${qs>=9?'Ottimo lavoro, siete pronti per la verifica!':qs>=6?'Bene! Ripassate gli argomenti in cui avete sbagliato.':'Ripassiamo insieme: tornate alle slide degli argomenti.'}</p><div><button class="primary" id="qRe">Rifai il quiz</button></div>`;$('#qRe').onclick=()=>{qi=0;qs=0;renderQ();};return;}
+  const [q,o,a,ex]=Q[qi];answered=false;
+  qz.innerHTML=`<div class="qprog"><div style="width:${qi/Q.length*100}%"></div></div><span class="qn">Domanda ${qi+1} di ${Q.length} · punti ${qs}</span><span class="qq">${q}</span><div class="qopts">${o.map((t,k)=>`<button type="button" data-k="${k}">${t}</button>`).join('')}</div><p class="qexp" aria-live="polite"></p><div><button class="primary" id="qNext" hidden>Prossima domanda</button></div>`;
+  $$('.qopts button',qz).forEach(b=>b.onclick=()=>{if(answered)return;answered=true;const k=+b.dataset.k;
+    if(k===a){qs++;b.classList.add('ok');}else{b.classList.add('ko');$$('.qopts button',qz)[a].classList.add('ok');}
+    $('.qexp',qz).textContent=(k===a?'Esatto. ':'Risposta corretta: '+o[a]+'. ')+ex;const n=$('#qNext');n.hidden=false;n.focus();n.onclick=()=>{qi++;renderQ();};});
+}
+renderQ();
+
+fromHash();
+})();
+</script>
+
+<script>/* barra comune: dimensione del testo, tema, schermo intero */
+(function(){
+var R=document.documentElement,B=document.querySelector(".xtools");if(!B)return;
+function g(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function s(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+new MutationObserver(function(){var t=R.getAttribute("data-theme");if(t==="dark"||t==="light")s("xbar-theme",t)}).observe(R,{attributes:true,attributeFilter:["data-theme"]});
+var sel=B.getAttribute("data-zoom"),K="xbar-zoom:"+location.pathname.replace(/index\.html$/,""),z=parseFloat(g(K))||1;
+function Z(v){z=Math.max(.8,Math.min(1.6,Math.round(v*10)/10));R.style.setProperty("--xzoom",z);s(K,z);
+ var a=B.querySelector('[data-x="zoom-out"]'),b=B.querySelector('[data-x="zoom-in"]');if(a)a.disabled=z<=.8;if(b)b.disabled=z>=1.6}
+if(sel){var st=document.createElement("style");st.textContent=sel+"{zoom:var(--xzoom,1)}";document.head.appendChild(st);Z(z)}
+B.addEventListener("click",function(e){var b=e.target.closest("[data-x]");if(!b)return;var x=b.getAttribute("data-x");
+ if(x==="zoom-in")Z(z+.1);else if(x==="zoom-out")Z(z-.1);
+ else if(x==="theme"){var t=R.getAttribute("data-theme"),d=t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches;R.setAttribute("data-theme",d?"light":"dark")}
+ else if(x==="full"){try{if(document.fullscreenElement)document.exitFullscreen();else{var p=R.requestFullscreen&&R.requestFullscreen();if(p&&p.catch)p.catch(function(){})}}catch(e){}}});
+var F=B.querySelector('[data-x="full"]');
+if(F){if(!R.requestFullscreen)F.hidden=true;document.addEventListener("fullscreenchange",function(){var on=!!document.fullscreenElement;F.setAttribute("aria-pressed",on?"true":"false");F.title=on?"Esci dallo schermo intero":"Schermo intero"})}
+})();
+</script>
+</body></html>
