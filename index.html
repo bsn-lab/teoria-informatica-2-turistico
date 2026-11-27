@@ -260,7 +260,6 @@ td:first-child{font-weight:700}
 
 <div class="app">
   <header class="topbar">
-    <a class="xhome" href="../../../index.html" title="Torna all'elenco dei corsi" aria-label="Torna all'elenco dei corsi">← Corsi</a>
     <div class="brand"><span class="tag">2ª TUR</span> Reti e Internet</div>
     <div class="xgo"><label for="chapterSel" class="xgo-l">Vai a</label><select class="xsel" id="chapterSel" aria-label="Vai all'argomento"></select></div>
     <span class="counter" id="counter">1 / 1</span>
@@ -434,26 +433,6 @@ $$('#netBtns button').forEach(b=>b.onclick=()=>setNet(b.dataset.net));
 $$('#rings [data-net]').forEach(e=>{e.style.cursor='pointer';e.addEventListener('click',()=>setNet(e.dataset.net));});
 setNet('LAN');
 
-/* ---- timeline ---- */
-const tl=[
-  ['1969','ARPANET',false,'Il Dipartimento della Difesa degli Stati Uniti collega i computer di 4 università. Il 29 ottobre 1969 parte il primo messaggio: doveva essere «LOGIN», arrivarono solo le lettere «LO» prima che il sistema si bloccasse.'],
-  ['1971','La prima email',false,'Ray Tomlinson invia la prima email tra due computer e sceglie il simbolo @ per separare il nome dell\'utente da quello del computer.'],
-  ['1983','Nasce Internet',false,'ARPANET adotta il protocollo TCP/IP: reti diverse possono finalmente parlare la stessa lingua. Nasce la «rete di reti».'],
-  ['1986','L\'Italia si collega',false,'Il 30 aprile 1986 il centro di ricerca CNUCE di Pisa si collega a Internet: l\'Italia è tra i primi Paesi europei.'],
-  ['1991','World Wide Web',false,'Al CERN di Ginevra Tim Berners-Lee crea il Web: pagine collegate da link, lette con un browser. Internet diventa facile da usare.'],
-  ['1993','Il Web per tutti',false,'Il CERN rende il Web libero e gratuito. Arriva Mosaic, il primo browser grafico diffuso: pagine con immagini.'],
-  ['1995','Comprare online',false,'Nascono Amazon ed eBay: inizia il commercio elettronico, si compra da casa.'],
-  ['1998','Google',false,'Nasce il motore di ricerca Google: trovare informazioni diventa immediato.'],
-  ['2004','Social network',false,'Nasce Facebook e, l\'anno dopo, YouTube: chiunque può pubblicare contenuti e condividerli.'],
-  ['2007','Internet in tasca',false,'Arriva l\'iPhone e poi gli smartphone Android: Internet si usa ovunque, in ogni momento.'],
-  ['2010','App e cloud',false,'WhatsApp (2009) e Instagram (2010) cambiano il modo di comunicare; foto e documenti si salvano nel cloud.'],
-  ['Oggi','Oltre 5 miliardi',false,'Più di 5 miliardi di persone usano Internet. 5G, cloud, Internet delle cose (IoT) e intelligenza artificiale: casa domotica, assistenti vocali, chatbot.']];
-const tlBox=$('#tl');
-tl.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t[0];b.onclick=()=>setTl(i);tlBox.appendChild(b);});
-function setTl(i){pressGroup(tlBox,tlBox.children[i]);const t=tl[i];const now=new Date();const anniv=(i===0&&now.getMonth()===9&&now.getDate()===29)?`<p class="annivers">Oggi è l'anniversario: Internet compie ${now.getFullYear()-1969} anni!</p>`:'';
-  $('#tlCard').innerHTML=`<span class="yr">${t[0]}</span><h3>${t[1]}</h3><p>${t[3]}</p>${anniv}`;}
-setTl(0);
-
 /* ---- pacchetti ---- */
 const N={PC:[70,150],R1:[230,65],R2:[230,235],R3:[400,150],R4:[570,65],R5:[570,235],S:[730,150]};
 const E=[['PC','R1'],['PC','R2'],['R1','R3'],['R2','R3'],['R1','R4'],['R2','R5'],['R3','R4'],['R3','R5'],['R4','S'],['R5','S']];
@@ -519,7 +498,6 @@ const Q=[
  ['La larghezza di banda si misura in…',['Byte','Bit al secondo','Hertz al metro'],1,'bps, Kbps, Mbps, Gbps.'],
  ['Con una connessione da 100 Mbps, un file da 100 MB si scarica in circa…',['1 secondo','8 secondi','100 secondi'],1,'100 MB × 8 = 800 Mb; 800 ÷ 100 = 8 secondi.'],
  ['La rete che collega i computer dentro una scuola è una…',['PAN','LAN','WAN'],1,'Copre un solo edificio: Local Area Network.'],
- ['Da quale rete è nata Internet?',['ARPANET','World Wide Web','Bluetooth'],0,'ARPANET, 1969, Stati Uniti.'],
  ['Il World Wide Web è…',['Un altro nome di Internet','Un servizio che funziona su Internet','Un tipo di cavo'],1,'Internet è la rete, il Web è uno dei suoi servizi.'],
  ['L\'indirizzo MAC identifica…',['Un sito web','La scheda di rete','Il router del provider'],1,'È scritto dal produttore ed è univoco per ogni scheda.'],
  ['Il modem serve a…',['Convertire segnali digitali in analogici e viceversa','Proteggere dai virus','Stampare in rete'],0,'MOdulatore-DEModulatore.'],

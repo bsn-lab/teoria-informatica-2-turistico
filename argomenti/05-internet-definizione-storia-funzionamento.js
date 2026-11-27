@@ -19,16 +19,6 @@
 
 <section class="slide" data-ch="5">
  <div class="slide-inner">
-  <p class="eyebrow">Argomento 5 · Evoluzione storica</p>
-  <h2>Da 4 computer a 5 miliardi di persone</h2>
-  <p class="ex">Tocca un anno per leggere cosa è successo.</p>
-  <div class="tl" id="tl"></div>
-  <div class="tlcard" id="tlCard" aria-live="polite"></div>
- </div>
-</section>
-
-<section class="slide" data-ch="5">
- <div class="slide-inner">
   <p class="eyebrow">Argomento 5 · Come funziona</p>
   <h2>Il viaggio di un messaggio</h2>
   <p class="lead">Cosa succede quando scrivi nel browser l'indirizzo di un sito, per esempio <strong>www.esempio.it</strong>, e premi Invio?</p>
